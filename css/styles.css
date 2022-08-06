@@ -1,0 +1,493 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*outline: 1px solid magenta;*/
+}
+
+/***   general styles   ***/
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  font-family: Helvetica, sans-serif;
+  height: 1000px;
+
+}
+
+img{
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+a{
+  text-decoration: none;
+}
+
+li{
+  display: block;
+}
+
+
+ul, li{
+  list-style: none;
+}
+
+.container{
+  width: 47rem;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+
+/***   header and nav styles   ***/
+
+
+
+.header{
+  background: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.nav-top{
+  /*background: blue;*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-hidden{
+  height: 0;
+  overflow: hidden;
+  transition: 300ms;
+}
+
+.nav-toggle, .nav-search{
+  background: none;
+  border: none;
+  font-size: 1.025rem;
+
+}
+
+.nav-link{
+  font-size: .95rem;
+}
+
+.nav-link, .nav-toggle, .nav-search{
+  transition: 300ms;
+  color: white;
+  padding: .9rem 1.5rem;
+  display: block;
+  text-transform: uppercase;
+}
+
+.nav-link:hover,.nav-toggle:hover,.nav-search:hover{
+  background: #ddd;
+  color: black;
+  cursor: pointer;
+}
+
+.nav-search:hover{
+  background: orangered;
+  color: #fff;
+}
+
+.desktop{
+  display: none;
+}
+
+@media (min-width: 550px){
+
+  .mobile{
+    display: none;
+  }
+
+  .desktop{
+    display: block;
+  }
+
+  .header{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-hidden{
+    height: auto !important;
+  }
+  .nav-hidden ul{
+    display: flex;
+  }
+
+}
+
+
+/***   showcase styles   ***/
+
+.showcase{
+  position: relative;
+  height: 60vh;
+}
+
+.showcase *{
+  position: absolute;
+}
+
+.slider{
+  color: #fff;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slider__img{
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+
+.slider__title, .slider__body{
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 55%;
+}
+
+.slider__title{
+  font-weight: normal;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+}
+
+.slider__body{
+  margin-top: 50px;
+  font-weight: bold;
+  letter-spacing: .6px;
+}
+
+
+@media (min-width: 650px){
+  .showcase{
+    height: 100vh;
+  }
+
+  .slider__title, .slider__body{
+    top: 85%;
+  }
+
+  .slider__body{
+    width: 100%;
+  }
+
+}
+
+
+/***   band section styles   ***/
+
+.section-heading{
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 3px;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.section-subheading{
+  color: #777;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.band{
+  padding: 6rem 0;
+}
+
+.band__description{
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.band__body{
+  line-height: 1.5;
+  text-align: justify;
+  font-size: .925rem;
+}
+
+.band__members{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-row-gap: 2rem;
+}
+
+.member{
+  text-align: center;
+  font-weight: normal;
+  min-width: 30%;
+  width: 50%;
+  max-width: 65%;
+}
+
+.member__name{
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 650px){
+
+  .band__members{
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .member{
+    min-width: 20%;
+    width: 20%;
+  }
+}
+
+
+
+/***   tour section styles   ***/
+
+.tour{
+  background: #000;
+  color: #fff;
+  padding: 6rem 0;
+}
+
+.tour__title, .tour__subheading{
+  text-align: center;
+}
+
+.tour__subheading{
+  margin-bottom: 3rem;
+}
+
+ul.tickets{
+  background: #fff;
+  color: #888;
+ /* max-width: 90%;
+  margin: 0 auto;*/
+  margin-bottom: 2rem;
+}
+
+ul.tickets li{
+  padding: .5rem 1rem;
+  border-bottom: 1px solid #ccc;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+}
+
+ul.tickets li span{
+  background: red;
+  padding: 2px 5px;
+  color: #fff;
+  margin-left: 1rem;
+}
+
+ul.tickets li:last-of-type span{
+  background: #000;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  margin-left: auto;
+}
+
+
+/*  tour ticket cards*/
+
+.ticket__card .details{
+  background: #fff;
+  color: #000;
+  padding: 1.2rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.ticket__card .details > *:not(:last-child){
+  margin-bottom: 1rem;
+}
+
+.details .ticket__destination{
+  text-transform: capitalize;
+}
+
+.details .ticket__date{
+  color: #777;
+}
+
+.details .ticket__description{
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+.details .ticket__buy__btn{
+  background: #000;
+  color: #fff;
+  padding: .5rem;
+  text-transform: capitalize;
+  font-size: 1.025rem;
+}
+
+
+@media (min-width: 550px){
+  .tour__ticket__cards{
+    display: flex;
+    column-gap: 1rem;
+  }
+}
+
+
+/***   contact section styles   ***/
+
+input{
+  border: 1px solid #bbb;
+  transition: 200ms;
+}
+
+input:focus{
+  outline-color: black;
+}
+
+.contact{
+  padding: 6rem 0;
+}
+
+.contact .wrapper{
+  margin-top: 4rem;
+}
+
+.contact__info{
+  margin-bottom: 1.5rem;
+  /*background: red;*/
+  padding-top: .3rem;
+}
+
+.contact__info li{
+  padding: .2rem 0;
+  font-family: verdana;
+}
+.contact__info li span{
+  margin-right: .5rem;
+  display: inline-block;
+  width: 1rem;
+}
+
+.contact__form{
+  /*background: gold;*/
+}
+
+.contact__form input{
+  width: 100%;
+  font-size: 1rem;
+  padding: .7rem;
+}
+
+.contact__form input:last-of-type{
+  margin-top: .5rem;
+  margin-bottom: 1rem;
+}
+
+.contact__form button{
+  margin-left: auto;
+  display: block;
+  background: #000;
+  color: #fff;
+  padding: .7rem 1rem;
+  text-transform: uppercase;
+}
+
+
+@media (min-width: 550px){
+   .contact .wrapper{
+    display: flex;
+  }
+  .contact__info{
+    width: 50%;
+  }
+  .contact__form{
+    width: 50%;
+    display: flex;
+    /*background: magenta;*/
+    flex-wrap: wrap;
+    column-gap: .5rem;
+    justify-content: space-between;
+  }
+
+  .contact__form input{
+    width: 48%;
+  }
+  .contact__form input:nth-of-type(3){
+    width: 100%;
+  }
+
+}
+
+
+/***  hero image above the footer styles  ***/
+
+.hero{
+  position: relative;
+}
+
+.hero::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.15);
+}
+
+
+
+/***   footer  ***/
+
+.footer{
+  padding: 6rem 0;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #777;
+}
+
+.footer p{
+  margin-top: 1.5rem;
+  font-size: 1rem;
+}
+
+.footer p span{
+  text-decoration: underline;
+  font-weight: bold;
+  text-transform: capitalize;
+  letter-spacing: 3px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
